@@ -59,15 +59,6 @@ const todoLine = {
                 const activeClass = document.getElementsByClassName('visibleRow');
                 const inputValue = document.getElementById('todo-search-row').value;
 
-                /*
-                const id = document.getElementsByClassName('activeRadioId')[0].id;
-                const idList = document.getElementsByClassName(id);
-
-                console.log(idList);
-                for(let i = 0; i< idList.length; i++){
-                    idList[i].classList.add('visibleRow');
-                } 
-*/
                 this.sortByRadioId;
                 for(let i = 0; i < activeClass.length; i++){
                     if (activeClass[i].querySelector('label').innerHTML.includes(inputValue)){
