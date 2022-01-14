@@ -73,7 +73,10 @@ const todoLine = {
                     }
                 }
             });
-        }
+        },
+    },
+    mounted(){
+        document.getElementsByClassName('todo-radio-search-type')[0].checked = true;
     }
 }
 
