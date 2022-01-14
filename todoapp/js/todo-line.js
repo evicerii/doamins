@@ -38,13 +38,15 @@ const todoLine = {
             event.target.parentNode.classList.toggle('Active') 
         },
         sortByRadioId(event){
-            const all = document.getElementsByClassName('All');
             const id = event.target.id;
             const idList = document.getElementsByClassName(id);
+            const all = document.getElementsByClassName('All');
 
-            if(document.querySelector('activeRadioId')){
-                document.querySelector('activeRadioId').classList.remove('activeRadioId');
+
+            if(document.getElementsByClassName('activeRadioId').length > 0){
+                document.getElementsByClassName('activeRadioId')[0].classList.remove('activeRadioId');
             }
+
             document.getElementById(id).classList.add('activeRadioId');
 
             for(let i = 0; i< all.length; i++){
@@ -56,20 +58,21 @@ const todoLine = {
         },
         searchItem(event){
             event.target.addEventListener('keyup',function(){
-                const activeClass = document.getElementsByClassName('visibleRow');
+                
                 const inputValue = document.getElementById('todo-search-row').value;
+                const id = document.getElementsByClassName('activeRadioId')[0].id;
+                const idList = document.getElementsByClassName(id);
+                
+                for(let i = 0; i< idList.length; i++){
+                    idList[i].classList.add('visibleRow');
+                } 
 
-                this.sortByRadioId;
-                for(let i = 0; i < activeClass.length; i++){
-                    if (activeClass[i].querySelector('label').innerHTML.includes(inputValue)){
-                        activeClass[i].classList.add('visibleRow');
-                    }
-                    else{
-                        activeClass[i].classList.remove('visibleRow');
+                for(let i = 0; i < idList.length; i++){
+                    if (!idList[i].querySelector('label').innerHTML.includes(inputValue)){
+                        idList[i].classList.remove('visibleRow');
                     }
                 }
             });
-            ;
         }
     }
 }
