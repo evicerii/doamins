@@ -24,29 +24,35 @@ const gameField = {
     mounted(){
         const allSlot = document.querySelector('.game-field').querySelectorAll('div');
         
+
+        //give elem random class
         allSlot.forEach(element => {
             let classIndex = this.randomClassValue();
             element.classList.add(this.classes[classIndex])
         });
         
         let rewrite = [];
+
+        //if elem class number not %2==0, than add elem name to rewrite arr
         for(let a = 0; a < this.classes.length; a++){
-            /* console.log(document.querySelectorAll('.'+this.classes[a]).length) */
             if (document.querySelectorAll('.'+this.classes[a]).length % 2 !== 0){
-                rewrite.push(document.querySelectorAll('.'+this.classes[a]))
+                rewrite.push(document.querySelectorAll('.'+this.classes[a]));
             }
         }
-        console.log(rewrite)
+
+        
+        //swap class uneven elem
+        while(rewrite.length > 0){
+            /* console.log(rewrite[0][0].classList[1]) */
+            rewrite[0][0].classList = rewrite[1][0].classList
+            /* console.log(rewrite[0][0].classList[1]) */
+            rewrite.splice(0,2);
+        }
+
+        //place image
         for(let i=0; i < 20; i++){
             let imgCont = document.querySelectorAll('.img-cont')[i]
             imgCont.querySelector('img').src ='img/' + imgCont.classList[1] + '.jpg'
-        }
-        console.log(rewrite[0][1].classList)
-        while(rewrite.length > 0){
-            /* console.log(rewrite[0][0].classList[1]) */
-            rewrite[0][0].classList = rewrite[0][1].classList
-            /* console.log(rewrite[0][0].classList[1]) */
-            rewrite.splice(0,2);
         }
     }
 }
