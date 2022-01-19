@@ -4,6 +4,7 @@
     
 }
 .img-cont{
+    position: relative;
     width: 100px;
     height: 100px;
     img{
@@ -11,4 +12,13 @@
         height: 100%;
         object-fit: cover;
     }
+}
+.hideElem{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background-color: black;
 }
