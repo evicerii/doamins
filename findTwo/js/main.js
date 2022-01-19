@@ -8,8 +8,8 @@ const gameField = {
     },
     template:`
     <section class='game-field'>
-        <div v-for:='(n,index) in 20'>
-            <p>apple</p>
+        <div v-for:='(n,index) in 20' class='img-cont'>
+            <img>
         </div>
     </section>
     `,
@@ -30,16 +30,23 @@ const gameField = {
         });
         
         let rewrite = [];
-        console.log(this.classes.length)
         for(let a = 0; a < this.classes.length; a++){
+            /* console.log(document.querySelectorAll('.'+this.classes[a]).length) */
             if (document.querySelectorAll('.'+this.classes[a]).length % 2 !== 0){
                 rewrite.push(document.querySelectorAll('.'+this.classes[a]))
             }
         }
+        console.log(rewrite)
+        for(let i=0; i < 20; i++){
+            let imgCont = document.querySelectorAll('.img-cont')[i]
+            imgCont.querySelector('img').src ='img/' + imgCont.classList[1] + '.jpg'
+        }
+        console.log(rewrite[0][1].classList)
         while(rewrite.length > 0){
-            document.querySelector('.' + rewrite[0]).classList = document.querySelector('.' + rewrite[1]).classList
-            rewrite.splice(0,2)
-
+            /* console.log(rewrite[0][0].classList[1]) */
+            rewrite[0][0].classList = rewrite[0][1].classList
+            /* console.log(rewrite[0][0].classList[1]) */
+            rewrite.splice(0,2);
         }
     }
 }

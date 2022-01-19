@@ -1,0 +1,14 @@
+.game-field{
+    display: grid;
+    grid-template-columns:repeat(5,1fr);
+    
+}
+.img-cont{
+    width: 100px;
+    height: 100px;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
