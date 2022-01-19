@@ -10,6 +10,7 @@ const gameField = {
     <section class='game-field'>
         <div v-for:='(n,index) in 20' class='img-cont'>
             <img>
+            <div class='hideElem'></div>
         </div>
     </section>
     `,
@@ -22,9 +23,8 @@ const gameField = {
         }
     },
     mounted(){
-        const allSlot = document.querySelector('.game-field').querySelectorAll('div');
+        const allSlot = document.querySelector('.game-field').querySelectorAll('.img-cont');
         
-
         //give elem random class
         allSlot.forEach(element => {
             let classIndex = this.randomClassValue();
@@ -51,8 +51,8 @@ const gameField = {
 
         //place image
         for(let i=0; i < 20; i++){
-            let imgCont = document.querySelectorAll('.img-cont')[i]
-            imgCont.querySelector('img').src ='img/' + imgCont.classList[1] + '.jpg'
+            let imgCont = document.querySelectorAll('.img-cont')[i];
+            imgCont.querySelector('img').src ='img/' + imgCont.classList[1] + '.jpg';
         }
     }
 }
