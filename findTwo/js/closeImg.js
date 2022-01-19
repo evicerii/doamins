@@ -8,10 +8,11 @@ allElem.forEach(e=>{
         let checkElem =  e.parentNode.querySelectorAll(`.checkElem`)
         if (checkElem.length == 2){
             checkElem.forEach(elem=>{
-                elem.classList.remove('checkElem')
-                elem.classList.add('hideElem')
+                setTimeout(()=>{
+                    elem.classList.remove('checkElem')
+                    elem.classList.add('hideElem')
+                },500)
             })
         }
-        
     })
 })
