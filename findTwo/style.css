@@ -27,4 +27,8 @@
   z-index: 2;
   background-color: black;
 }
+
+.blocked {
+  pointer-events: none;
+}
 /*# sourceMappingURL=style.css.map */

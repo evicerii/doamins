@@ -14,11 +14,11 @@ function checkTwo(e){
     
     if (eArr.length == 2 && eArr[0].classList[1] == eArr[1].classList[1]){
         eArr.forEach(el=>{
-            el.addEventListener('click', (event) => { return false; });
+            el.classList.add('blocked');
         })
         eArr = []
     }else if(eArr.length == 2){
-        returnHide(checkElem);
+        returnHide(eArr);
         eArr = []
     }
 }
@@ -26,8 +26,8 @@ function checkTwo(e){
 function returnHide(a){
     a.forEach(elem=>{
         setTimeout(()=>{
-            elem.classList.remove('checkElem')
-            elem.classList.add('hideElem')
+            elem.querySelector('div').classList.remove('checkElem')
+            elem.querySelector('div').classList.add('hideElem')
         },500)
     })
 }
